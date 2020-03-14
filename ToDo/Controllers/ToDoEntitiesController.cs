@@ -24,7 +24,7 @@ namespace ToDo.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ToDoEntity>>> GetToDos()
         {
-            return await _context.ToDos.ToListAsync();
+            return await _context.ToDos.Where(t => !t.isFinished).ToListAsync();
         }
 
         // GET: api/ToDoEntities/5

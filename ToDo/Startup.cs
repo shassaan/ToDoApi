@@ -28,7 +28,9 @@ namespace ToDo
         {
             services.AddControllers();
 
-            services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
+            //services.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("default")));
+            services.AddDbContext<ApplicationDbContext>(options => options.UseInMemoryDatabase("ToDoDB"));
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

@@ -24,7 +24,7 @@ namespace ToDo.Controllers
         [HttpGet]
         public async Task<ActionResult<IEnumerable<ToDoEntity>>> GetToDos()
         {
-            return await _context.ToDos.Where(t => !t.isFinished).ToListAsync();
+            return await _context.ToDos.ToListAsync();
         }
 
         // GET: api/ToDoEntities/5
@@ -70,7 +70,7 @@ namespace ToDo.Controllers
                 }
             }
 
-            return NoContent();
+            return Content("Updated");
         }
 
         // POST: api/ToDoEntities
